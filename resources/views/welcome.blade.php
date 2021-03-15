@@ -8,16 +8,15 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            .header {
-                text-align: center;
-                font-size: 20px
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        <div class="header">Ben Welcome Sayfasıyım</div>
-        <a href="{{ route('post') }}">POST</a>
-
+        <div id="app">
+            <example-component></example-component>
+            Ben Welcome Sayfasıyım
+            <a href="{{ route('post') }}">POST</a>
+            
+        </div>
     </body>
+    <script src="{{ asset('js/app.js') }}"></script>
 </html>
