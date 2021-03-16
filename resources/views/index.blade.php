@@ -12,9 +12,12 @@
     </head>
     <body>
         <div id="app">
-            <example-component></example-component>
-            Ben Welcome Sayfasıyım
-            <a href="{{ route('post') }}">POST</a>
+            <header-side></header-side>
+            ANA SAYFA
+            <br><br><br>
+            <router-link to='/'>Home</router-link>
+            <router-link to='/about'>POST</router-link>
+            <router-view></router-view>
             
         </div>
     </body>

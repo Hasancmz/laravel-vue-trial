@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <div id="app">
-    <example-component></example-component>
+    <header-side></header-side>
     Ben POST Sayfasıyım
-    <a href="{{ route('welcome') }}">Welcome sayfasına Geri Dön</a>
-    
+    <br><br><br>
+    <router-link to='/'>Home</router-link>
+    <router-link to='/about'>POST</router-link>
+    <router-view></router-view>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
 
