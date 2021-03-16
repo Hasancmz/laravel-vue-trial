@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,11 @@ Route::get('/post', function () {
 Route::get('/products', function () {
     return view('main.products');
 })->name('products');
+
+
+/*Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
+
+------ urL'ye  tanımlı olmayan path girdiğinde  return ettiğin yere döner --------
+*/

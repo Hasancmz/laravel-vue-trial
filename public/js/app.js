@@ -2068,20 +2068,55 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
-Vue.component('header-side', __webpack_require__(/*! ./components/HeaderSide.vue */ "./resources/js/components/HeaderSide.vue").default);
-Vue.component('products-header', __webpack_require__(/*! ./components/ProductsHeader.vue */ "./resources/js/components/ProductsHeader.vue").default);
-var app = new Vue({
+
+vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
+vue__WEBPACK_IMPORTED_MODULE_1__.default.component('header-side', __webpack_require__(/*! ./components/HeaderSide.vue */ "./resources/js/components/HeaderSide.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_1__.default.component('products-header', __webpack_require__(/*! ./components/ProductsHeader.vue */ "./resources/js/components/ProductsHeader.vue").default);
+var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   el: '#app',
-  router: new vue_router__WEBPACK_IMPORTED_MODULE_1__.default(_routes__WEBPACK_IMPORTED_MODULE_0__.default)
+  router: new vue_router__WEBPACK_IMPORTED_MODULE_2__.default(_routes__WEBPACK_IMPORTED_MODULE_0__.default)
 });
+/*const routes = [
+    {path: '/', component: require('./components/Home.vue').default},
+    {path: '/about', component: require('./components/About.vue').default},
+    {path: '/products/kazak', component: require('./components/Kazak.vue').default},
+    {path: '/products/ayakkabi', component: require('./components/Ayakkabi.vue').default},
+    {path: '/products/esofman', component: require('./components/Esofman.vue').default},
+    {path: '/products/mont', component: require('./components/Mont.vue').default},
+    {path: '/products/polar', component: require('./components/Polar.vue').default},
+]
+
+const router = new VueRouter({
+    routes: routes,
+    mode: "history"
+})
+
+const app = new Vue({
+    router
+}).$mount('#app')
+
+------------Diğer path yolu bu şekilde burda tanımlanıyor hepside ----------------------------
+*/
+
+/*require('./bootstrap');
+
+window.Vue = require('vue').default;
+
+import routes from './routes';
+
+//Vue.component('header-side', require('./components/HeaderSide.vue').default);
+
+const app = new Vue({
+    routes
+});*/
 
 /***/ }),
 
@@ -2158,27 +2193,49 @@ __webpack_require__.r(__webpack_exports__);
   mode: 'history',
   routes: [{
     path: '/',
+    name: 'home',
     component: _components_Home__WEBPACK_IMPORTED_MODULE_0__.default
   }, {
     path: '/about',
+    name: 'about',
     component: _components_About__WEBPACK_IMPORTED_MODULE_1__.default
   }, {
     path: '/products/kazak',
+    name: 'kazak',
     component: _components_Kazak__WEBPACK_IMPORTED_MODULE_2__.default
   }, {
     path: '/products/ayakkabi',
+    name: 'ayakkabi',
     component: _components_Ayakkabi__WEBPACK_IMPORTED_MODULE_3__.default
   }, {
     path: '/products/esofman',
+    name: 'esofman',
     component: _components_Esofman__WEBPACK_IMPORTED_MODULE_4__.default
   }, {
     path: '/products/mont',
+    name: 'mont',
     component: _components_Mont__WEBPACK_IMPORTED_MODULE_5__.default
   }, {
     path: '/products/polar',
+    name: 'polar',
     component: _components_Polar__WEBPACK_IMPORTED_MODULE_6__.default
   }]
 });
+/*import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+import home from './components/Home';
+import about from './components/About';
+
+const routes = [
+    {path: '/', component:home},
+    {path: '/about', component:about}
+]
+
+export default new VueRouter ({
+    routes
+})*/
 
 /***/ }),
 
