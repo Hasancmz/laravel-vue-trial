@@ -22,7 +22,7 @@ Route::get('/post', function () {
     return view('main.post');
 })->name('post');
 
-Route::get('/products', function () {
+Route::get('/products/{any?}', function () {
     return view('main.products');
 })->name('products');
 

@@ -1,15 +1,29 @@
 require('./bootstrap');
-
+//console.log(baseUrl);
 window.Vue = require('vue').default;
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from './routes';
+import routes from './router/routes';
 
 Vue.use(VueRouter);
  
+Vue.component('container', require('./components/Container.vue').default);
+Vue.component('card-container', require('./components/CardContainer.vue').default);
 Vue.component('header-side', require('./components/HeaderSide.vue').default);
+Vue.component('footer-side', require('./components/FooterSide.vue').default);
 Vue.component('products-header', require('./components/ProductsHeader.vue').default);
+Vue.component('home', require('./views/Home.vue').default);
+
+Vue.mixin({
+    data: function(){
+        return {
+            get baseUrl() {
+                return baseUrl;
+            }
+        }
+    }
+})
 
 const app = new Vue({
     el: '#app',

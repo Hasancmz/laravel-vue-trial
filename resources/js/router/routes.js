@@ -1,25 +1,13 @@
-import Home from './components/Home';
-import About from './components/About';
-import Kazak from './components/Kazak';
-import Ayakkabi from './components/Ayakkabi';
-import Esofman from './components/Esofman';
-import Mont from './components/Mont';
-import Polar from './components/Polar';
+import Kazak from '../views/Kazak';
+import Ayakkabi from '../views/Ayakkabi';
+import Esofman from '../views/Esofman';
+import Mont from '../views/Mont';
+import Polar from '../views/Polar';
 
 export default {
     mode: 'history',
 
     routes: [
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About
-        },
         {
             path: '/products/kazak',
             name: 'kazak',
@@ -63,5 +51,3 @@ const routes = [
 export default new VueRouter ({
     routes
 })*/
-
-

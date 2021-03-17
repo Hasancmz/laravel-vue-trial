@@ -3,9 +3,7 @@
     <header-side></header-side>
     Ben POST Sayfasıyım
     <br><br><br>
-    <router-link to='/' exact>Home</router-link>
-    <router-link to='/about' exact>POST</router-link>
-    <router-view></router-view>
+    <footer-side></footer-side>
 @endsection
 
 

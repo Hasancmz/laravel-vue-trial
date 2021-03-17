@@ -1,6 +1,6 @@
 <template>
     <div>
-        About sayfası
+        ANA SAYFA
     </div>
 </template>
 
