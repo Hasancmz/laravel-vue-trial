@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CardController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,4 +41,5 @@ Auth::routes();
 Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])->name('panel');
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], function () {
+    Route::resource('cards', CardController::class);
 });

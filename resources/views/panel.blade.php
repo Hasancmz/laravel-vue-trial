@@ -71,4 +71,9 @@
         </div>
     </div>
 </div>
+
+<div>
+    <a href="" class="btn btn-primary">Cards</a>
+</div>
+
 @endsection

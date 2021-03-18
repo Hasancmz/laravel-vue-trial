@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            CardSeeder::class,
+        ]);
+
         \App\Models\User::insert([
             'name' => 'Hasan',
             'email' => 'hasan@hotmail.com',
