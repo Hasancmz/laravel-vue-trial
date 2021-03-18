@@ -10,6 +10,7 @@ Vue.use(VueRouter);
  
 Vue.component('container', require('./components/Container.vue').default);
 Vue.component('card-container', require('./components/CardContainer.vue').default);
+Vue.component('card-style', require('./components/CardStyle.vue').default);
 Vue.component('header-side', require('./components/HeaderSide.vue').default);
 Vue.component('footer-side', require('./components/FooterSide.vue').default);
 Vue.component('products-header', require('./components/ProductsHeader.vue').default);
