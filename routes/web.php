@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -33,3 +34,7 @@ Route::get('/products/{any?}', function () {
 
 ------ urL'ye  tanımlı olmayan path girdiğinde  return ettiğin yere döner --------
 */
+
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
