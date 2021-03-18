@@ -37,4 +37,7 @@ Route::get('/products/{any?}', function () {
 
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])->name('panel');
+
+Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], function () {
+});
