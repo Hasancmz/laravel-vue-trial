@@ -21,8 +21,13 @@ class CardFactory extends Factory
      */
     public function definition()
     {
+        $category = ['kazak', 'polar', 'esofman', 'ayakkabi', 'mont'];
         return [
-            //
+            'category' => $category[rand(0, 4)],
+            'image' => $this->faker->imageUrl(640, 480),
+            'title' => $this->faker->sentence(rand(1, 2)),
+            'description' => $this->faker->sentence(rand(3, 5)),
+            'price' => $this->faker->numberBetween(50, 100),
         ];
     }
 }

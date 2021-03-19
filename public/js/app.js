@@ -1856,6 +1856,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -39255,11 +39257,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
+      _c("h5", [_vm._v("Title")]),
+      _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
-        _vm._v(
-          "Some quick example text to build on the card title and make up the bulk of the card's content."
-        )
-      ])
+        _vm._v("Some quick example text to build on the card.")
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("72 TL")])
     ])
   }
 ]
