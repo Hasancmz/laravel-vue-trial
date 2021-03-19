@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use App\Http\Requests\CardCreateRequest;
 
 class CardController extends Controller
 {
@@ -26,7 +27,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.card.create');
     }
 
     /**
@@ -35,9 +36,10 @@ class CardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CardCreateRequest $request)
     {
-        //
+        Card::create($request->post());
+        return redirect()->route('cards.index')->withSuccess('Card Başarıyla Oluşturuldu');
     }
 
     /**

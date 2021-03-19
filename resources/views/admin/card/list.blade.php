@@ -3,7 +3,7 @@
 <div class="card mt-5">
     <div class="card-body mt-3">
         <h5 class="card-title float-right">
-            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Card Oluştur</a>
+            <a href="{{ route('cards.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-2"></i>Card Oluştur</a>
         </h5>
         <h5 class="card-title float-left">
           <a href="{{ route('panel') }}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left mr-1"></i>Panele dön</a>

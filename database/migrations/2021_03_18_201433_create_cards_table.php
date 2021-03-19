@@ -15,7 +15,7 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->enum('category', ['kazak', 'mont', 'polar', 'ayakkabi', 'esofman']);
             $table->longText('image');
             $table->string('title');
             $table->string('description');
