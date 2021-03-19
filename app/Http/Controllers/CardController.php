@@ -14,8 +14,7 @@ class CardController extends Controller
      */
     public function index()
     {
-        $card = Card::find();
-        return view('admin.card.list', compact('card'));
+        return "Selam";
     }
 
     /**

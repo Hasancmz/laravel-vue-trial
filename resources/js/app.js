@@ -1,32 +1,33 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import VueRouter from 'vue-router';
+import routes from './router/routes';
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.use(VueRouter);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+
+Vue.component('header-side', require('./components/HeaderSide.vue').default);
+Vue.component('card-bootstrap', require('./components/CardBootstrap.vue').default);
+Vue.component('card-style', require('./components/CardStyle.vue').default);
+Vue.component('container', require('./components/Container.vue').default);
+Vue.component('card-container', require('./components/CardContainer.vue').default);
+Vue.component('products-header', require('./components/ProductsHeader.vue').default);
+Vue.component('footer-side', require('./components/FooterSide.vue').default);
+
+
+Vue.mixin( {
+    data() {
+        return {
+            baseUrl
+        }
+    },
+})
+
 
 const app = new Vue({
     el: '#app',
+    router: new VueRouter(routes)
 });
