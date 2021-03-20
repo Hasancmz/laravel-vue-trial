@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use Illuminate\Http\Request;
 use App\Http\Requests\CardCreateRequest;
+use App\Http\Requests\CardUpdateRequest;
+use Illuminate\Support\Str;
 
 class CardController extends Controller
 {
@@ -16,7 +18,20 @@ class CardController extends Controller
      */
     public function index()
     {
-        $cards = Card::Paginate(5);
+        $cards = Card::select('*');
+        //$cards = Card::query();   İkiside Oluyor....
+
+        if (request()->get('title')) {
+            $cards = $cards->where('title', 'LIKE', "%" . request()->get('title') . "%");
+        }
+
+        if (request()->get('category')) {
+            $cards = $cards->where('category', request()->get('category'));
+        }
+
+        $cards = $cards->Paginate(5);
+        // burdaki yapı sayesinde search and filter işlemleri oldu.
+
         return view('admin.card.list', compact('cards'));
     }
 
@@ -38,6 +53,15 @@ class CardController extends Controller
      */
     public function store(CardCreateRequest $request)
     {
+        if ($request->hasfile('image')) {
+            $fileName = Str::slug($request->title) . '.' . $request->image->extension();
+            $fileNameWithUpload = 'uploads/' . $fileName;
+            $request->image->move(public_path('uploads'), $fileName);
+            $request->merge([
+                'image' => $fileNameWithUpload
+            ]);
+        }
+
         Card::create($request->post());
         return redirect()->route('cards.index')->withSuccess('Card Başarıyla Oluşturuldu');
     }
@@ -59,9 +83,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function edit(Card $card)
+    public function edit($id)
     {
-        //
+        $card = Card::find($id) ?? abort(404);
+        return view('admin.card.edit', compact('card'));
     }
 
     /**
@@ -71,9 +96,20 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Card $card)
+    public function update(CardUpdateRequest $request, $id)
     {
-        //
+        if ($request->hasfile('image')) {
+            $fileName = Str::slug($request->title) . '.' . $request->image->extension();
+            $fileNameWithUpload = 'uploads/' . $fileName;
+            $request->image->move(public_path('uploads'), $fileName);
+            $request->merge([
+                'image' => $fileNameWithUpload
+            ]);
+        }
+
+        $card = Card::find($id) ?? abort(404);
+        $card->whereId($id)->first()->update($request->post());
+        return redirect()->route('cards.index')->withSuccess('Card Başarıyla Güncellendi');
     }
 
     /**
@@ -82,8 +118,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Card $card)
+    public function destroy($id)
     {
-        //
+        $card = Card::find($id) ?? abort(404);
+        $card->delete();
+        return redirect()->route('cards.index')->withSuccess('Card Başarıyla Silindi');
     }
 }

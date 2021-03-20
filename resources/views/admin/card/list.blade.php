@@ -2,12 +2,36 @@
 @section('content')
 <div class="card mt-5">
     <div class="card-body mt-3">
-        <h5 class="card-title float-right">
-            <a href="{{ route('cards.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-2"></i>Card Oluştur</a>
-        </h5>
-        <h5 class="card-title float-left">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title">
           <a href="{{ route('panel') }}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left mr-1"></i>Panele dön</a>
         </h5>
+        <h5 class="card-title">
+          <a href="{{ route('cards.create') }}" class="btn btn-sm btn-primary"><i class="fa fa-plus mr-2"></i>Card Oluştur</a>
+        </h5>
+      </div>
+      <form action="" method="GET">
+        <div class="form-row mb-2">
+          <div class="col-md-2">
+            <input type="text" name="title" value="{{ request()->get('title') }}" placeholder="Card Başlığı Ara..." class="form-control">
+          </div>
+          <div class="col-md-2">
+            <select class="form-control" name="category"  onchange="this.form.submit()">
+              <option value="">Kategori Seçiniz</option>
+              <option @if(request()->get('category') == 'kazak') selected @endif value="kazak">Kazak</option>
+              <option @if(request()->get('category') == 'esofman') selected @endif value="esofman">Eşofman</option>
+              <option @if(request()->get('category') == 'mont') selected @endif value="mont">Mont</option>
+              <option @if(request()->get('category') == 'polar') selected @endif value="polar">Polar</option>
+              <option @if(request()->get('category') == 'ayakkabi') selected @endif value="ayakkabi">Ayakkabi</option>
+            </select>
+          </div>
+          @if(request()->get('title') || request()->get('category'))
+            <div class="col-md-2">
+              <a href="{{ route('cards.index') }}" class="btn btn-secondary">Sıfırla</a>
+            </div>
+          @endif
+        </div>
+      </form>
         <table class="table table-bordered">
             <thead>
               <tr>
@@ -25,16 +49,16 @@
                 <td scope="row">{{ $card->category }}</td>
                 <td>
                   
-                    <a href="" class="btn btn-sm btn-secondary" target="_blank">Görüntüle</a>
+                    <a href="{{ asset($card->image) }}" class="btn btn-sm btn-secondary" target="_blank">Görüntüle</a>
                   
                 </td>
                 <td>{{ $card->title }}</td>
                 <td>{{ $card->description }}</td>
                 <td>{{ $card->price }}</td>
                 <td>   
-                    <form action="" method="post">
+                    <form action="{{ route('cards.destroy', $card->id) }}" method="post">
                       @csrf @method('delete')
-                      <a href="" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                      <a href="{{ route('cards.edit', $card->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                       <button type="submit" class="btn btn-sm btn-danger" title="Sil"><i class="fa fa-times"></i></button>
                     </form>
                 </td>
@@ -42,7 +66,8 @@
             @endforeach 
             </tbody>
         </table>
-        {{ $cards->links() }}
+        {{ $cards->withQueryString()->links() }}
+        <!-- withQeryStringi ekleme sebebimiz paginate kısmında 2.sayfaya sarkan filter veya search olursa hatalı oluyor o yüzden ekledik -->
     </div>
 </div>
 @endsection
