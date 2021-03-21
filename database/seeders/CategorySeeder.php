@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class CardSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class CardSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Card::factory(25)->create();
+        \App\Models\Category::factory(5)->create();
     }
 }

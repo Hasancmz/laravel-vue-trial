@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Card;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\CardCreateRequest;
 use App\Http\Requests\CardUpdateRequest;
@@ -18,6 +19,8 @@ class CardController extends Controller
      */
     public function index()
     {
+
+
         $cards = Card::select('*');
         //$cards = Card::query();   İkiside Oluyor....
 
@@ -25,8 +28,8 @@ class CardController extends Controller
             $cards = $cards->where('title', 'LIKE', "%" . request()->get('title') . "%");
         }
 
-        if (request()->get('category')) {
-            $cards = $cards->where('category', request()->get('category'));
+        if (request()->get('category_id')) {
+            $cards = $cards->where('category_id', request()->get('category_id'));
         }
 
         $cards = $cards->Paginate(5);

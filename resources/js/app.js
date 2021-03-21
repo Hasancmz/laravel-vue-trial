@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 
 
 Vue.component('header-side', require('./components/HeaderSide.vue').default);
-Vue.component('card-bootstrap', require('./components/CardBootstrap.vue').default);
+//Vue.component('card-bootstrap', require('./components/CardBootstrap.vue').default);
 Vue.component('card-style', require('./components/CardStyle.vue').default);
 Vue.component('container', require('./components/Container.vue').default);
 Vue.component('card-container', require('./components/CardContainer.vue').default);

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 
@@ -16,7 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            CategorySeeder::class,
             CardSeeder::class,
+
         ]);
         //  this->call u burda çağırma sebebimiz seedleri ayrı ayrı çağırabilmek için parçaladık yoksa seedi çağırdığımızda hepsini çalıştırıcak.
 

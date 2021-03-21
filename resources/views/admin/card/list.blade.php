@@ -16,16 +16,16 @@
             <input type="text" name="title" value="{{ request()->get('title') }}" placeholder="Card Başlığı Ara..." class="form-control">
           </div>
           <div class="col-md-2">
-            <select class="form-control" name="category"  onchange="this.form.submit()">
+            <select class="form-control" name="category_id"  onchange="this.form.submit()">
               <option value="">Kategori Seçiniz</option>
-              <option @if(request()->get('category') == 'kazak') selected @endif value="kazak">Kazak</option>
-              <option @if(request()->get('category') == 'esofman') selected @endif value="esofman">Eşofman</option>
-              <option @if(request()->get('category') == 'mont') selected @endif value="mont">Mont</option>
-              <option @if(request()->get('category') == 'polar') selected @endif value="polar">Polar</option>
-              <option @if(request()->get('category') == 'ayakkabi') selected @endif value="ayakkabi">Ayakkabi</option>
+              <option @if(request()->get('category_id') == '1') selected @endif value="1">Kazak</option>
+              <option @if(request()->get('category_id') == '2') selected @endif value="2">Eşofman</option>
+              <option @if(request()->get('category_id') == '3') selected @endif value="3">Mont</option>
+              <option @if(request()->get('category_id') == '4') selected @endif value="4">Polar</option>
+              <option @if(request()->get('category_id') == '5') selected @endif value="5">Ayakkabi</option>
             </select>
           </div>
-          @if(request()->get('title') || request()->get('category'))
+          @if(request()->get('title') || request()->get('category_id'))
             <div class="col-md-2">
               <a href="{{ route('cards.index') }}" class="btn btn-secondary">Sıfırla</a>
             </div>
@@ -46,7 +46,7 @@
             <tbody>
             @foreach ($cards as $card)      
               <tr>
-                <td scope="row">{{ $card->category }}</td>
+                <td scope="row">{{ $card->category_id }}</td>
                 <td>
                   
                     <a href="{{ asset($card->image) }}" class="btn btn-sm btn-secondary" target="_blank">Görüntüle</a>

@@ -13,13 +13,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Kategori</label>
-                    <select name="category" class="form-control">
+                    <select name="category_id" class="form-control">
                         <option value="">Durum Seçiniz</option>
-                        <option @if(old('category') === 'kazak') selected @endif value="kazak">Kazak</option>
-                        <option @if(old('category') === 'ayakkabi') selected @endif value="ayakkabi">Ayakkabı</option>
-                        <option @if(old('category') === 'mont') selected @endif value="mont">Mont</option>
-                        <option @if(old('category') === 'polar') selected @endif value="polar">Polar</option>
-                        <option @if(old('category') === 'esofman') selected @endif value="esofman">Eşofman</option>
+                        <option @if(old('category_id') === '1') selected @endif value="1">Kazak</option>
+                        <option @if(old('category_id') === '2') selected @endif value="2">Ayakkabı</option>
+                        <option @if(old('category_id') === '3') selected @endif value="3">Mont</option>
+                        <option @if(old('category_id') === '4') selected @endif value="4">Polar</option>
+                        <option @if(old('category_id') === '5') selected @endif value="5">Eşofman</option>
                     </select>
                 </div>
                 <div class="form-group">

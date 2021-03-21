@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,4 +43,5 @@ Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])->nam
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], function () {
     Route::resource('cards', CardController::class);
+    Route::resource('data', CategoryController::class);
 });
