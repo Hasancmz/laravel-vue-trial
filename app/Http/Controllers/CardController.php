@@ -19,8 +19,6 @@ class CardController extends Controller
      */
     public function index()
     {
-
-
         $cards = Card::select('*');
         //$cards = Card::query();   İkiside Oluyor....
 

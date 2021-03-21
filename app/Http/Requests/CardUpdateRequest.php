@@ -24,7 +24,7 @@ class CardUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required',
+            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required|max:200',
             'image' => 'required',
@@ -35,7 +35,7 @@ class CardUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'category' => 'Kategori',
+            'category_id' => 'Kategori',
             'title' => 'Başlık',
             'description' => 'Açıklama',
             'image' => 'Resim',
