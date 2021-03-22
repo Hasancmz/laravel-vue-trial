@@ -19,10 +19,10 @@
             <select class="form-control" name="category_id"  onchange="this.form.submit()">
               <option value="">Kategori Seçiniz</option>
               <option @if(request()->get('category_id') == '1') selected @endif value="1">Kazak</option>
-              <option @if(request()->get('category_id') == '2') selected @endif value="2">Eşofman</option>
+              <option @if(request()->get('category_id') == '2') selected @endif value="2">Ayakkabi</option>
               <option @if(request()->get('category_id') == '3') selected @endif value="3">Mont</option>
               <option @if(request()->get('category_id') == '4') selected @endif value="4">Polar</option>
-              <option @if(request()->get('category_id') == '5') selected @endif value="5">Ayakkabi</option>
+              <option @if(request()->get('category_id') == '5') selected @endif value="5">Eşofman</option>
             </select>
           </div>
           @if(request()->get('title') || request()->get('category_id'))

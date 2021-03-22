@@ -3,9 +3,9 @@
         <div class="title-section">
             <router-link to="/products/kazak">Kazak</router-link>
             <router-link to="/products/ayakkabi">Ayakkabı</router-link>
-            <router-link to="/products/esofman">Eşofman</router-link>
             <router-link to="/products/mont">Mont</router-link>
             <router-link to="/products/polar">Polar</router-link>
+            <router-link to="/products/esofman">Eşofman</router-link>
         </div>
     </div>
 </template>

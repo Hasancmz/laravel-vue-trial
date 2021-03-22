@@ -15,7 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::find(3)->cards;
+        //return Category::find(1)->cards;
+        return Category::with('cards')->get();
+
+
+        /*$user = Category::with(['cards' => function($query){
+            $query->where('category_id',1);
+        }])->get();            ------- category_id si 1 olanları getirir.-----------*/
     }
 
     /**
