@@ -16,6 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         //return Category::find(1)->cards;
+
         return Category::with('cards')->get();
 
 

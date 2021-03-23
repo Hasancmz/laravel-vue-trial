@@ -33,7 +33,7 @@ import CardContainer from '../components/CardContainer.vue'
         },
         methods: {
             read() {
-                axios.get('/admin/data').then(({data}) => {
+                axios.get('/category/data').then(({data}) => {
                     this.categories = data;
                     this.cards = this.categories[0].cards;
                 })

@@ -1,6 +1,6 @@
 <template>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <a class="navbar-brand text-light" href="#">Navbar</a>
+            <a class="navbar-brand text-light" href="/">Marka</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -13,18 +13,10 @@
                         <a class="nav-link text-light" href="/post">Post</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="/products">Ürünlerimiz</a>
+                        <a class="nav-link text-light" href="/products/kazak">Ürünlerimiz</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Another
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Kazak</a>
-                            <a class="dropdown-item" href="#">Pantolon</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Ayakkabı</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/iletisim">İletişim</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

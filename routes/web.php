@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ProductController::class, 'index'], function () {
     return view('index');
 })->name('index');
 
@@ -29,6 +30,11 @@ Route::get('/products/{any?}', function () {
     return view('main.products');
 })->name('products');
 
+Route::get('/iletisim', function () {
+    return view('main.iletisim');
+})->name('iletisim');
+
+//Route::get('/product', [ProductController::class, 'index']);
 
 /*Route::get('/{any}', function () {
     return view('index');
@@ -43,5 +49,6 @@ Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])->nam
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], function () {
     Route::resource('cards', CardController::class);
-    Route::resource('data', CategoryController::class);
 });
+
+Route::get('category/data', [CategoryController::class, 'index']);

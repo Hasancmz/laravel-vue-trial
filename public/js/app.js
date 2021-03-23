@@ -2013,14 +2013,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2099,7 +2091,7 @@ __webpack_require__.r(__webpack_exports__);
     read: function read() {
       var _this = this;
 
-      axios.get('/admin/data').then(function (_ref) {
+      axios.get('/category/data').then(function (_ref) {
         var data = _ref.data;
         _this.categories = data;
         _this.cards = _this.categories[1].cards;
@@ -2160,7 +2152,7 @@ __webpack_require__.r(__webpack_exports__);
     read: function read() {
       var _this = this;
 
-      axios.get('/admin/data').then(function (_ref) {
+      axios.get('/category/data').then(function (_ref) {
         var data = _ref.data;
         _this.categories = data;
         _this.cards = _this.categories[4].cards;
@@ -2221,7 +2213,7 @@ __webpack_require__.r(__webpack_exports__);
     read: function read() {
       var _this = this;
 
-      axios.get('/admin/data').then(function (_ref) {
+      axios.get('/category/data').then(function (_ref) {
         var data = _ref.data;
         _this.categories = data;
         _this.cards = _this.categories[0].cards;
@@ -2282,7 +2274,7 @@ __webpack_require__.r(__webpack_exports__);
     read: function read() {
       var _this = this;
 
-      axios.get('/admin/data').then(function (_ref) {
+      axios.get('/category/data').then(function (_ref) {
         var data = _ref.data;
         _this.categories = data;
         _this.cards = _this.categories[2].cards;
@@ -2343,7 +2335,7 @@ __webpack_require__.r(__webpack_exports__);
     read: function read() {
       var _this = this;
 
-      axios.get('/admin/data').then(function (_ref) {
+      axios.get('/category/data').then(function (_ref) {
         var data = _ref.data;
         _this.categories = data;
         _this.cards = _this.categories[3].cards;
@@ -39547,8 +39539,8 @@ var staticRenderFns = [
       [
         _c(
           "a",
-          { staticClass: "navbar-brand text-light", attrs: { href: "#" } },
-          [_vm._v("Navbar")]
+          { staticClass: "navbar-brand text-light", attrs: { href: "/" } },
+          [_vm._v("Marka")]
         ),
         _vm._v(" "),
         _c(
@@ -39604,56 +39596,20 @@ var staticRenderFns = [
                   "a",
                   {
                     staticClass: "nav-link text-light",
-                    attrs: { href: "/products" }
+                    attrs: { href: "/products/kazak" }
                   },
                   [_vm._v("Ürünlerimiz")]
                 )
               ]),
               _vm._v(" "),
-              _c("li", { staticClass: "nav-item dropdown" }, [
+              _c("li", { staticClass: "nav-item" }, [
                 _c(
                   "a",
                   {
-                    staticClass: "nav-link dropdown-toggle text-light",
-                    attrs: {
-                      href: "#",
-                      id: "navbarDropdown",
-                      role: "button",
-                      "data-toggle": "dropdown",
-                      "aria-haspopup": "true",
-                      "aria-expanded": "false"
-                    }
+                    staticClass: "nav-link text-light",
+                    attrs: { href: "/iletisim" }
                   },
-                  [_vm._v("\n                Another\n                ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "dropdown-menu",
-                    attrs: { "aria-labelledby": "navbarDropdown" }
-                  },
-                  [
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Kazak")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Pantolon")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "dropdown-divider" }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Ayakkabı")]
-                    )
-                  ]
+                  [_vm._v("İletişim")]
                 )
               ])
             ]),

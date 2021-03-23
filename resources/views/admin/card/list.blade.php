@@ -46,11 +46,23 @@
             <tbody>
             @foreach ($cards as $card)      
               <tr>
-                <td scope="row">{{ $card->category_id }}</td>
+                @if ($card->category_id == 1)
+                  <td scope="row">Kazak</td>    
+                @endif
+                @if ($card->category_id == 2)
+                  <td scope="row">Ayakkabı</td>    
+                @endif
+                @if ($card->category_id == 3)
+                  <td scope="row">Mont</td>    
+                @endif
+                @if ($card->category_id == 4)
+                  <td scope="row">Polar</td>    
+                @endif
+                @if ($card->category_id == 5)
+                  <td scope="row">Eşofman</td>    
+                @endif
                 <td>
-                  
                     <a href="{{ asset($card->image) }}" class="btn btn-sm btn-secondary" target="_blank">Görüntüle</a>
-                  
                 </td>
                 <td>{{ $card->title }}</td>
                 <td>{{ $card->description }}</td>

@@ -30,7 +30,7 @@ class CardController extends Controller
             $cards = $cards->where('category_id', request()->get('category_id'));
         }
 
-        $cards = $cards->Paginate(5);
+        $cards = $cards->orderBy('created_at', 'desc')->Paginate(5);
         // burdaki yapı sayesinde search and filter işlemleri oldu.
 
         return view('admin.card.list', compact('cards'));
@@ -55,7 +55,7 @@ class CardController extends Controller
     public function store(CardCreateRequest $request)
     {
         if ($request->hasfile('image')) {
-            $fileName = Str::slug($request->title) . '.' . $request->image->extension();
+            $fileName = Str::slug($request->image) . '.' . $request->image->extension();
             $fileNameWithUpload = 'uploads/' . $fileName;
             $request->image->move(public_path('uploads'), $fileName);
             $request->merge([
