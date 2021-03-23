@@ -1,38 +1,38 @@
-import Kazak from '../views/Kazak';
-import Ayakkabi from '../views/Ayakkabi';
-import Esofman from '../views/Esofman';
-import Mont from '../views/Mont';
-import Polar from '../views/Polar';
+//import Kazak from '../views/Kazak';
+//import Ayakkabi from '../views/Ayakkabi';
+//import Esofman from '../views/Esofman';
+//import Mont from '../views/Mont';
+//import Polar from '../views/Polar';
+import Category from '../views/Category';
 
 export default {
     mode: 'history',
-
     routes: [
         {
-            path: '/products/kazak',
-            name: 'kazak',
-            component: Kazak
+            path: '/products/:slug',
+            name: 'category',
+            component: Category
         },
-        {
-            path: '/products/ayakkabi',
-            name: 'ayakkabi',
-            component: Ayakkabi
-        },
-        {
-            path: '/products/esofman',
-            name: 'esofman',
-            component: Esofman
-        },
-        {
-            path: '/products/mont',
-            name: 'mont',
-            component: Mont
-        },
-        {
-            path: '/products/polar',
-            name: 'polar',
-            component: Polar
-        }
+        // {
+        //     path: '/products/ayakkabi',
+        //     name: 'ayakkabi',
+        //     component: Ayakkabi
+        // },
+        // {
+        //     path: '/products/esofman',
+        //     name: 'esofman',
+        //     component: Esofman
+        // },
+        // {
+        //     path: '/products/mont',
+        //     name: 'mont',
+        //     component: Mont
+        // },
+        // {
+        //     path: '/products/polar',
+        //     name: 'polar',
+        //     component: Polar
+        // }
     ]
 }
 

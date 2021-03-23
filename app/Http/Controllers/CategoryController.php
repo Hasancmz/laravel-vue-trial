@@ -13,11 +13,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         //return Category::find(1)->cards;
 
-        return Category::with('cards')->get();
+        return Category::where('category', $slug)->with('cards')->first();
 
 
         /*$user = Category::with(['cards' => function($query){

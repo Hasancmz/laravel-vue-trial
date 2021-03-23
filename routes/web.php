@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -45,10 +46,10 @@ Route::get('/iletisim', function () {
 
 
 Auth::routes();
-Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])->name('panel');
+Route::get('/panel', [HomeController::class, 'index'])->name('panel');
 
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], function () {
     Route::resource('cards', CardController::class);
 });
 
-Route::get('category/data', [CategoryController::class, 'index']);
+Route::get('category/{slug}/data', [CategoryController::class, 'index']);

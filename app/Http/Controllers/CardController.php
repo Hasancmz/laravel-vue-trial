@@ -55,11 +55,11 @@ class CardController extends Controller
     public function store(CardCreateRequest $request)
     {
         if ($request->hasfile('image')) {
-            $fileName = Str::slug($request->image) . '.' . $request->image->extension();
-            $fileNameWithUpload = 'uploads/' . $fileName;
-            $request->image->move(public_path('uploads'), $fileName);
+            $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
+            $folderPath = storage_path("app/public/products/");
+            $request->image->move($folderPath, $fileName);
             $request->merge([
-                'image' => $fileNameWithUpload
+                'image' => "storage/products/" . $fileName
             ]);
         }
 
@@ -99,12 +99,21 @@ class CardController extends Controller
      */
     public function update(CardUpdateRequest $request, $id)
     {
-        if ($request->hasfile('image')) {
+        /*if ($request->hasfile('image')) {
             $fileName = Str::slug($request->title) . '.' . $request->image->extension();
             $fileNameWithUpload = 'uploads/' . $fileName;
             $request->image->move(public_path('uploads'), $fileName);
             $request->merge([
                 'image' => $fileNameWithUpload
+            ]);
+        }*/
+
+        if ($request->hasfile('image')) {
+            $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
+            $folderPath = storage_path("app/public/products/");
+            $request->image->move($folderPath, $fileName);
+            $request->merge([
+                'image' => "storage/products/" . $fileName
             ]);
         }
 
