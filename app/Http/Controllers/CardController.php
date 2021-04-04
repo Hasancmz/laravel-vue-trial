@@ -55,13 +55,22 @@ class CardController extends Controller
     public function store(CardCreateRequest $request)
     {
         if ($request->hasfile('image')) {
-            $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
-            $folderPath = storage_path("app/public/products/");
-            $request->image->move($folderPath, $fileName);
+            $fileName = Str::slug($request->title) . '-' . time() . '.' . $request->image->extension();
+            $fileNameWithUpload = 'uploads/' . $fileName;
+            $request->image->move(public_path('uploads'), $fileName);
             $request->merge([
-                'image' => "storage/products/" . $fileName
+                'image' => $fileNameWithUpload
             ]);
         }
+
+        // if ($request->hasfile('image')) {
+        //     $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
+        //     $folderPath = storage_path("app/public/products/");
+        //     $request->image->move($folderPath, $fileName);
+        //     $request->merge([
+        //         'image' => "storage/products/" . $fileName
+        //     ]);
+        // }         ------ Storage_path -------
 
         Card::create($request->post());
         return redirect()->route('cards.index')->withSuccess('Card Başarıyla Oluşturuldu');
@@ -99,23 +108,23 @@ class CardController extends Controller
      */
     public function update(CardUpdateRequest $request, $id)
     {
-        /*if ($request->hasfile('image')) {
-            $fileName = Str::slug($request->title) . '.' . $request->image->extension();
+        if ($request->hasfile('image')) {
+            $fileName = Str::slug($request->title) . '-' . time() . '.' . $request->image->extension();
             $fileNameWithUpload = 'uploads/' . $fileName;
             $request->image->move(public_path('uploads'), $fileName);
             $request->merge([
                 'image' => $fileNameWithUpload
             ]);
-        }*/
-
-        if ($request->hasfile('image')) {
-            $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
-            $folderPath = storage_path("app/public/products/");
-            $request->image->move($folderPath, $fileName);
-            $request->merge([
-                'image' => "storage/products/" . $fileName
-            ]);
         }
+
+        // if ($request->hasfile('image')) {
+        //     $fileName = Str::slug($request->title) . "-" . time() . '.' . $request->image->extension();
+        //     $folderPath = storage_path("app/public/products/");
+        //     $request->image->move($folderPath, $fileName);
+        //     $request->merge([
+        //         'image' => "storage/products/" . $fileName
+        //     ]);
+        // }       ------ Storage_path -------
 
         $card = Card::find($id) ?? abort(404);
         $card->whereId($id)->first()->update($request->post());

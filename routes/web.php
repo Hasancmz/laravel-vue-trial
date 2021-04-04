@@ -52,4 +52,6 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin'], functio
     Route::resource('cards', CardController::class);
 });
 
-Route::get('category/{slug}/data', [CategoryController::class, 'index']);
+
+Route::get('category/data', [CategoryController::class, 'index']);
+// Route::get('category/{slug}/data', [CategoryController::class, 'index']);   --- Slug tek vue komponentden çekme yöntemi----

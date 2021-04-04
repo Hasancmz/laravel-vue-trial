@@ -13,12 +13,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index()
     {
         //return Category::find(1)->cards;
 
-        return Category::where('category', $slug)->with('cards')->first();
+        //return Category::where('category', $slug)->with('cards')->first(); ----tek vue komponentinden çağırdığımızda sluglı hali ----
 
+        return Category::with('cards')->get();
 
         /*$user = Category::with(['cards' => function($query){
             $query->where('category_id',1);
